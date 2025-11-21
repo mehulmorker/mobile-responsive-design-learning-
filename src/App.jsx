@@ -107,13 +107,13 @@ function App() {
         >
           Our Features
         </Typography>
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
           <Grid item xs={12} sm={4} md={4}>
             <Card sx={{ width: "100%", height: "400px" }}>
               <CardMedia
                 component="img"
                 height="200"
-                image="https://via.placeholder.com/400x200"
+                image="https://picsum.photos/id/235/400/200"
                 alt="Feature 1"
               />
               <CardContent>
@@ -141,7 +141,7 @@ function App() {
               <CardMedia
                 component="img"
                 height="200"
-                image="https://via.placeholder.com/400x200"
+                image="https://picsum.photos/id/236/400/200"
                 alt="Feature 2"
               />
               <CardContent>
@@ -168,7 +168,7 @@ function App() {
               <CardMedia
                 component="img"
                 height="200"
-                image="https://via.placeholder.com/400x200"
+                image="https://picsum.photos/id/237/400/200"
                 alt="Feature 3"
               />
               <CardContent>
