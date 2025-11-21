@@ -57,7 +57,7 @@ npm run preview
 
 When viewing this application on a mobile device (or in browser dev tools with mobile emulation), you will observe the following **intentional issues**:
 
-### 1. **Navigation Overflow**
+### 1. **Navigation Issues**
 
 - The AppBar contains too many buttons that don't fit on small screens
 - Navigation items are cramped and may overlap
@@ -112,12 +112,13 @@ When viewing this application on a mobile device (or in browser dev tools with m
 
 ### Mobile View (Current Problems)
 
-- Navigation buttons overflow and become unusable
-- Hero text extends beyond viewport (horizontal scroll)
-- Feature cards may be too narrow or overflow
-- Table requires horizontal scrolling
-- Footer content overlaps or is too cramped
-- Text is difficult to read due to small font sizes
+- Navigation buttons wrap to multiple lines (not ideal UX, should use drawer)
+- Hero section has fixed width (800px) causing horizontal scroll
+- Text content with fixed widths (700px) extends beyond viewport
+- Table has minimum width (1000px) requiring horizontal scrolling
+- Footer content doesn't stack vertically (should be single column)
+- Font sizes may be too small for comfortable mobile reading
+- Grid items don't stack properly (should be single column on mobile)
 
 ## 📚 Learning Path
 
