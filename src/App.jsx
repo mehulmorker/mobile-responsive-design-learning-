@@ -19,6 +19,8 @@ import {
   Box,
 } from "@mui/material";
 import "./App.css";
+import BreakpointDemo from "./components/BreakpointDemo";
+import ResponsiveContent from "./components/ResponsiveContent";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           </Button>
         </Toolbar>
       </AppBar>
+      <BreakpointDemo />
+      <ResponsiveContent />
 
       {/* Hero Section - Fixed width container */}
       <Container maxWidth="lg" sx={{ padding: "60px 20px" }}>
