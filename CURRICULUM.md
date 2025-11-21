@@ -379,8 +379,8 @@ In **Lesson 2**, we'll convert the fixed-width hero section and layout container
       <Button
         variant="contained"
         size="large"
-        fullWidth={{ xs: true, sm: false }}
         sx={{
+          width: { xs: "100%", sm: "auto" },
           padding: { xs: "12px 24px", md: "12px 40px" },
           fontSize: { xs: "16px", md: "18px" },
         }}
@@ -407,6 +407,7 @@ In **Lesson 2**, we'll convert the fixed-width hero section and layout container
 - Responsive values in `sx` prop use breakpoint objects: `{ xs: value, md: value }`
 - Mobile-first: xs is base, larger breakpoints override
 - Full-width button on mobile improves touch target
+- **Note**: MUI's `fullWidth` prop only accepts a boolean, not responsive values. Use `sx={{ width: { xs: "100%", sm: "auto" } }}` instead of `fullWidth={{ xs: true, sm: false }}`
 
 #### 2. Fix Features Grid
 
@@ -1897,8 +1898,8 @@ In **Lesson 6**, we'll make forms touch-friendly with proper input sizing, stack
         type="submit"
         variant="contained"
         size="large"
-        fullWidth={{ xs: true, sm: false }}
         sx={{
+          width: { xs: "100%", sm: "auto" },
           padding: { xs: "14px 24px", md: "14px 50px" },
           fontSize: { xs: "16px", md: "18px" },
           minHeight: { xs: "48px", md: "48px" }, // Touch target
@@ -2091,8 +2092,8 @@ function ResponsiveForm() {
             type="submit"
             variant="contained"
             size="large"
-            fullWidth={{ xs: true, sm: false }}
             sx={{
+              width: { xs: "100%", sm: "auto" },
               minHeight: "48px",
               fontSize: "16px",
               padding: { xs: "12px 24px", md: "14px 32px" },

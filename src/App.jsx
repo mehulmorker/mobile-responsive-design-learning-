@@ -19,6 +19,8 @@ import {
   Box,
 } from "@mui/material";
 import "./App.css";
+import BreakpointDemo from "./components/BreakpointDemo";
+import ResponsiveContent from "./components/ResponsiveContent";
 
 function App() {
   return (
@@ -39,31 +41,61 @@ function App() {
           </Button>
         </Toolbar>
       </AppBar>
+      <BreakpointDemo />
+      <ResponsiveContent />
 
       {/* Hero Section - Fixed width container */}
-      <Container maxWidth="lg" sx={{ padding: "60px 20px" }}>
-        <Box sx={{ width: "800px", margin: "0 auto" }}>
+      <Container
+        maxWidth="lg"
+        sx={{ padding: { xs: "40px 16px", sm: "50px 20px", md: "60px 20px" } }}
+      >
+        <Box
+          sx={{
+            maxWidth: { xs: "100%", md: "800px" },
+            margin: "0 auto",
+            textAlign: { xs: "left", sm: "center" },
+          }}
+        >
           <Typography
             variant="h2"
-            sx={{ fontSize: "48px", marginBottom: "20px" }}
+            sx={{
+              fontSize: { xs: "32px", sm: "40px", md: "48px" },
+              marginBottom: { xs: "16px", md: "20px" },
+            }}
           >
             Welcome to Our Platform
           </Typography>
           <Typography
             variant="body1"
-            sx={{ fontSize: "18px", marginBottom: "30px", width: "700px" }}
+            sx={{
+              fontSize: { xs: "16px", md: "18px" },
+              marginBottom: { xs: "24px", md: "30px" },
+              maxWidth: { xs: "100%", md: "700px" },
+              mx: { xs: 0, md: "auto" },
+            }}
           >
             This is a demonstration of a non-responsive design. Notice how the
             content overflows on mobile devices, the navigation is cramped, and
             the layout doesn't adapt to smaller screens.
           </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{ padding: "12px 40px" }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "stretch", sm: "center" },
+            }}
           >
-            Get Started
-          </Button>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                width: { xs: "100%", sm: "auto" },
+                padding: { xs: "12px 24px", md: "12px 40px" },
+                fontSize: { xs: "16px", md: "18px" },
+              }}
+            >
+              Get Started
+            </Button>
+          </Box>
         </Box>
       </Container>
 
