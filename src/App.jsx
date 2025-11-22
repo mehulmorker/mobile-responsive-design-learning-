@@ -57,8 +57,8 @@ function App() {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "32px", sm: "40px", md: "48px" },
-              marginBottom: { xs: "16px", md: "20px" },
+              marginBottom: { xs: "16px", sm: "20px", md: "24px" },
+              fontWeight: 600,
             }}
           >
             Welcome to Our Platform
@@ -66,8 +66,7 @@ function App() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "16px", md: "18px" },
-              marginBottom: { xs: "24px", md: "30px" },
+              marginBottom: { xs: "24px", sm: "28px", md: "30px" },
               maxWidth: { xs: "100%", md: "700px" },
               mx: { xs: 0, md: "auto" },
             }}
