@@ -313,6 +313,20 @@ In **Lesson 2**, we'll convert the fixed-width hero section and layout container
 - Footer layout → Stack on mobile, side-by-side on desktop
 - Container padding → Responsive spacing
 
+### Important: MUI v7 Grid v2 API
+
+**This curriculum uses MUI v7**, which introduces the new Grid v2 API. Instead of individual breakpoint props like `xs={12} sm={6}`, use the `size` prop with an object:
+
+```javascript
+// ✅ MUI v7 (Grid v2) - Recommended
+<Grid item size={{ xs: 12, sm: 6, md: 4 }}>
+
+// ⚠️ Old syntax (still works but not recommended)
+<Grid item xs={12} sm={6} md={4}>
+```
+
+The `size` prop is cleaner and more consistent. All examples in this curriculum use the new syntax.
+
 ### Code Changes
 
 #### 1. Fix Hero Section Layout
@@ -424,11 +438,13 @@ In **Lesson 2**, we'll convert the fixed-width hero section and layout container
 </Grid>
 ```
 
+**Note**: The old syntax `xs={12} sm={4}` still works but MUI v7 recommends the new `size` prop.
+
 **After**:
 
 ```javascript
 <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
-  <Grid item xs={12} sm={6} md={4}>
+  <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
     <Card
       sx={{
         width: "100%",
@@ -561,12 +577,13 @@ In **Lesson 2**, we'll convert the fixed-width hero section and layout container
 
 ### MUI APIs Used
 
-1. **`Grid` Component**
+1. **`Grid` Component** (MUI v7 Grid v2)
 
    - `container`: Parent grid container
    - `item`: Child grid item
    - `spacing`: Gap between items (responsive)
-   - `xs`, `sm`, `md`, `lg`, `xl`: Breakpoint props for column width
+   - `size`: **New in v7** - Object prop for responsive column width: `size={{ xs: 12, sm: 6, md: 4 }}`
+   - **Note**: Old syntax `xs={12} sm={6}` still works but `size` prop is recommended in MUI v7
 
 2. **`Box` Component with `sx` Prop**
 
@@ -1989,7 +2006,7 @@ function ResponsiveForm() {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
       <Grid container spacing={{ xs: 2, sm: 3 }}>
-        <Grid item xs={12} sm={6}>
+        <Grid item size={{ xs: 12, sm: 6 }}>
           <TextField
             label="First Name"
             variant="outlined"
@@ -2007,7 +2024,7 @@ function ResponsiveForm() {
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item size={{ xs: 12, sm: 6 }}>
           <TextField
             label="Last Name"
             variant="outlined"
@@ -2025,7 +2042,7 @@ function ResponsiveForm() {
             }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item size={{ xs: 12 }}>
           <TextField
             label="Email"
             type="email"
@@ -2048,7 +2065,7 @@ function ResponsiveForm() {
             }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item size={{ xs: 12 }}>
           <TextField
             label="Phone (Optional)"
             type="tel"
@@ -2068,7 +2085,7 @@ function ResponsiveForm() {
             }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item size={{ xs: 12 }}>
           <TextField
             label="Message"
             variant="outlined"
@@ -2087,7 +2104,7 @@ function ResponsiveForm() {
             }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item size={{ xs: 12 }}>
           <Button
             type="submit"
             variant="contained"
@@ -2103,7 +2120,7 @@ function ResponsiveForm() {
           </Button>
         </Grid>
         {submitted && (
-          <Grid item xs={12}>
+          <Grid item size={{ xs: 12 }}>
             <Alert severity="success" onClose={() => setSubmitted(false)}>
               Form submitted successfully!
             </Alert>
@@ -2138,9 +2155,10 @@ export default ResponsiveForm;
 
 2. **`Grid` Component for Form Layout**
 
-   - Side-by-side fields on desktop
-   - Stacked on mobile
-   - Responsive spacing
+   - Use `size={{ xs: 12, sm: 6 }}` for responsive column widths
+   - Side-by-side fields on desktop (`sm: 6` = 2 columns)
+   - Stacked on mobile (`xs: 12` = full width, 1 column)
+   - Responsive spacing with `spacing={{ xs: 2, sm: 3 }}`
 
 3. **Input Attributes**
 
@@ -2931,7 +2949,7 @@ function App() {
   return (
     <Grid container spacing={2}>
       {items.map((item) => (
-        <Grid item xs={12} sm={6} md={4} key={item.id}>
+        <Grid item size={{ xs: 12, sm: 6, md: 4 }} key={item.id}>
           <Card sx={{ height: cardHeight }}>{/* Card content */}</Card>
         </Grid>
       ))}
