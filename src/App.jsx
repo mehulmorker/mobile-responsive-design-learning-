@@ -42,7 +42,6 @@ function App() {
         </Toolbar>
       </AppBar>
       <BreakpointDemo />
-      <ResponsiveContent />
 
       {/* Hero Section - Fixed width container */}
       <Container
