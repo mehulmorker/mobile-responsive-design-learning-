@@ -7,7 +7,6 @@ import {
   Container,
   Card,
   CardContent,
-  CardMedia,
   Grid,
   TextField,
   Table,
@@ -28,6 +27,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./App.css";
 import BreakpointDemo from "./components/BreakpointDemo";
 import Navigation from "./components/Navigation";
+import ResponsiveImage from "./components/ResponsiveImage";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -191,14 +191,12 @@ function App() {
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <CardMedia
-                component="img"
-                sx={{
-                  height: { xs: 180, sm: 200, md: 200 },
-                  objectFit: "cover",
-                }}
-                image="https://picsum.photos/id/235/400/200"
+              <ResponsiveImage
+                src="https://picsum.photos/id/235/400/200"
                 alt="Feature 1"
+                aspectRatio="4/3"
+                objectFit="cover"
+                lazy={true}
               />
               <CardContent>
                 <Typography
@@ -225,14 +223,12 @@ function App() {
           </Grid>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <CardMedia
-                component="img"
-                sx={{
-                  height: { xs: 180, sm: 200, md: 200 },
-                  objectFit: "cover",
-                }}
-                image="https://picsum.photos/id/236/400/200"
+              <ResponsiveImage
+                src="https://picsum.photos/id/236/400/200"
                 alt="Feature 2"
+                aspectRatio="4/3"
+                objectFit="cover"
+                lazy={true}
               />
               <CardContent>
                 <Typography
@@ -258,14 +254,12 @@ function App() {
           </Grid>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <CardMedia
-                component="img"
-                sx={{
-                  height: { xs: 180, sm: 200, md: 200 },
-                  objectFit: "cover",
-                }}
-                image="https://picsum.photos/id/237/400/200"
+              <ResponsiveImage
+                src="https://picsum.photos/id/237/400/200"
                 alt="Feature 3"
+                aspectRatio="4/3"
+                objectFit="cover"
+                lazy={true}
               />
               <CardContent>
                 <Typography
