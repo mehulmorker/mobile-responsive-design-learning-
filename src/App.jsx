@@ -22,34 +22,104 @@ import {
   Drawer,
   SwipeableDrawer,
   Divider,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./App.css";
 import BreakpointDemo from "./components/BreakpointDemo";
+import Navigation from "./components/Navigation";
 
 function App() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
+  };
+
   return (
     <Box>
       {/* Navigation - Fixed width, no mobile adaptation */}
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 0, marginRight: "40px" }}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { xs: "block", md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: { xs: 1, md: 0 }, mr: { xs: 0, md: 4 } }}
+          >
             My Website
           </Typography>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Services</Button>
-          <Button color="inherit">Portfolio</Button>
-          <Button color="inherit">Contact</Button>
-          <Button color="inherit" sx={{ marginLeft: "auto" }}>
-            Login
-          </Button>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              flexGrow: 1,
+              gap: 1,
+            }}
+          >
+            <Button color="inherit">Home</Button>
+            <Button color="inherit">About</Button>
+            <Button color="inherit">Services</Button>
+            <Button color="inherit">Portfolio</Button>
+            <Button color="inherit">Contact</Button>
+            <Button color="inherit" sx={{ marginLeft: "auto" }}>
+              Login
+            </Button>
+          </Box>
         </Toolbar>
       </AppBar>
+      {/* Remove Below Once everything is completed */}
       <BreakpointDemo />
+
+      {/* Mobile Drawer */}
+      <SwipeableDrawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={handleDrawerClose}
+        onOpen={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better mobile performance
+        }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: { xs: 280, sm: 320 },
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 2,
+            minHeight: 64,
+          }}
+        >
+          <Typography variant="h6">Menu</Typography>
+          <IconButton
+            onClick={handleDrawerClose}
+            aria-label="close drawer"
+            edge="end"
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Divider />
+        <Navigation onItemClick={handleDrawerClose} />
+      </SwipeableDrawer>
 
       {/* Hero Section - Fixed width container */}
       <Container

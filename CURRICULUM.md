@@ -1095,13 +1095,14 @@ import CloseIcon from "@mui/icons-material/Close";
 
 - Added `useState` for drawer state
 - Added Drawer components and icons
-- Added `useMediaQuery` and `useTheme` for responsive logic
+- Added drawer-related imports (SwipeableDrawer, icons, etc.)
 
 **Why**:
 
 - Need state to control drawer open/close
 - SwipeableDrawer provides better mobile UX
 - Icons improve visual communication
+- **Note**: We use responsive `sx` props for show/hide logic, not `useMediaQuery`. This is simpler and more performant for styling.
 
 #### 2. Create Navigation Component
 
@@ -1175,8 +1176,6 @@ export default Navigation;
 
 ```javascript
 function App() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -1272,12 +1271,13 @@ function App() {
 
 **What Changed**:
 
-- Added `useState` and `useMediaQuery` hooks
-- Added hamburger menu icon (visible only on mobile)
-- Hidden desktop navigation on mobile
+- Added `useState` for drawer state management
+- Added hamburger menu icon (visible only on mobile via `sx={{ display: { xs: "block", md: "none" } }}`)
+- Hidden desktop navigation on mobile using responsive `sx` props
 - Added SwipeableDrawer for mobile
 - Added close button in drawer header
 - Navigation component in drawer
+- **Note**: We use responsive `sx` props instead of `useMediaQuery` here. This is the preferred MUI approach as it's more declarative and performant. `useMediaQuery` is useful when you need conditional logic (see Lesson 7 for table-to-cards transformation).
 
 **Why**:
 
