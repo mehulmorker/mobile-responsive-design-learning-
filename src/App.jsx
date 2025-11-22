@@ -128,58 +128,82 @@ function App() {
       </SwipeableDrawer>
 
       {/* Hero Section - Fixed width container */}
-      <Container
-        maxWidth="lg"
-        sx={{ padding: { xs: "40px 16px", sm: "50px 20px", md: "60px 20px" } }}
+      <Box
+        sx={{
+          position: "relative",
+          backgroundImage: {
+            xs: "url('https://picsum.photos/id/228/800/400')",
+            md: "url('https://picsum.photos/id/228/1200/600')",
+          },
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+          },
+        }}
       >
-        <Box
+        <Container
+          maxWidth="lg"
           sx={{
-            maxWidth: { xs: "100%", md: "800px" },
-            margin: "0 auto",
-            textAlign: { xs: "left", sm: "center" },
+            padding: { xs: "40px 16px", sm: "50px 20px", md: "60px 20px" },
           }}
         >
-          <Typography
-            variant="h2"
-            sx={{
-              marginBottom: { xs: "16px", sm: "20px", md: "24px" },
-              fontWeight: 600,
-            }}
-          >
-            Welcome to Our Platform
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              marginBottom: { xs: "24px", sm: "28px", md: "30px" },
-              maxWidth: { xs: "100%", md: "700px" },
-              mx: { xs: 0, md: "auto" },
-            }}
-          >
-            This is a demonstration of a non-responsive design. Notice how the
-            content overflows on mobile devices, the navigation is cramped, and
-            the layout doesn't adapt to smaller screens.
-          </Typography>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: { xs: "stretch", sm: "center" },
+              maxWidth: { xs: "100%", md: "800px" },
+              margin: "0 auto",
+              textAlign: { xs: "left", sm: "center" },
             }}
           >
-            <Button
-              variant="contained"
-              size="large"
+            <Typography
+              variant="h2"
               sx={{
-                width: { xs: "100%", sm: "auto" },
-                padding: { xs: "12px 24px", md: "12px 40px" },
-                fontSize: { xs: "16px", md: "18px" },
+                marginBottom: { xs: "16px", sm: "20px", md: "24px" },
+                fontWeight: 600,
               }}
             >
-              Get Started
-            </Button>
+              Welcome to Our Platform
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                marginBottom: { xs: "24px", sm: "28px", md: "30px" },
+                maxWidth: { xs: "100%", md: "700px" },
+                mx: { xs: 0, md: "auto" },
+              }}
+            >
+              This is a demonstration of a non-responsive design. Notice how the
+              content overflows on mobile devices, the navigation is cramped,
+              and the layout doesn't adapt to smaller screens.
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "stretch", sm: "center" },
+              }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
+                  width: { xs: "100%", sm: "auto" },
+                  padding: { xs: "12px 24px", md: "12px 40px" },
+                  fontSize: { xs: "16px", md: "18px" },
+                }}
+              >
+                Get Started
+              </Button>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
 
       {/* Features Grid - Fixed columns, no stacking */}
       <Container maxWidth="lg" sx={{ padding: "40px 20px" }}>
