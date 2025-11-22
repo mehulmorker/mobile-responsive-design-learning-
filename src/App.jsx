@@ -121,8 +121,8 @@ function App() {
                   variant="h5"
                   component="div"
                   sx={{
-                    fontSize: { xs: "20px", md: "24px" },
-                    marginBottom: { xs: "8px", md: "10px" },
+                    marginBottom: { xs: "8px", sm: "10px", md: "12px" },
+                    fontWeight: 500,
                   }}
                 >
                   Feature One
@@ -130,7 +130,7 @@ function App() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
+                  sx={{ lineHeight: { xs: 1.5, md: 1.6 } }}
                 >
                   This is a description of our first feature. It contains
                   important information that users need to know. The text might
@@ -155,8 +155,8 @@ function App() {
                   variant="h5"
                   component="div"
                   sx={{
-                    fontSize: { xs: "20px", md: "24px" },
-                    marginBottom: { xs: "8px", md: "10px" },
+                    marginBottom: { xs: "8px", sm: "10px", md: "12px" },
+                    fontWeight: 500,
                   }}
                 >
                   Feature Two
@@ -164,7 +164,7 @@ function App() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
+                  sx={{ lineHeight: { xs: 1.5, md: 1.6 } }}
                 >
                   This is a description of our second feature. Notice how the
                   cards maintain their fixed height regardless of screen size.
@@ -188,8 +188,8 @@ function App() {
                   variant="h5"
                   component="div"
                   sx={{
-                    fontSize: { xs: "20px", md: "24px" },
-                    marginBottom: { xs: "8px", md: "10px" },
+                    marginBottom: { xs: "8px", sm: "10px", md: "12px" },
+                    fontWeight: 500,
                   }}
                 >
                   Feature Three
@@ -197,7 +197,7 @@ function App() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
+                  sx={{ lineHeight: { xs: 1.5, md: 1.6 } }}
                 >
                   This is a description of our third feature. The layout doesn't
                   adapt to smaller screens.
