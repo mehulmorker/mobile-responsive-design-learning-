@@ -108,11 +108,14 @@ function App() {
           Our Features
         </Typography>
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
-          <Grid item xs={12} sm={4} md={4}>
-            <Card sx={{ width: "100%", height: "400px" }}>
+          <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
               <CardMedia
                 component="img"
-                height="200"
+                sx={{
+                  height: { xs: 180, sm: 200, md: 200 },
+                  objectFit: "cover",
+                }}
                 image="https://picsum.photos/id/235/400/200"
                 alt="Feature 1"
               />
@@ -120,14 +123,17 @@ function App() {
                 <Typography
                   variant="h5"
                   component="div"
-                  sx={{ fontSize: "24px", marginBottom: "10px" }}
+                  sx={{
+                    fontSize: { xs: "20px", md: "24px" },
+                    marginBottom: { xs: "8px", md: "10px" },
+                  }}
                 >
                   Feature One
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: "14px" }}
+                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
                 >
                   This is a description of our first feature. It contains
                   important information that users need to know. The text might
@@ -136,11 +142,14 @@ function App() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <Card sx={{ width: "100%", height: "400px" }}>
+          <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
               <CardMedia
                 component="img"
-                height="200"
+                sx={{
+                  height: { xs: 180, sm: 200, md: 200 },
+                  objectFit: "cover",
+                }}
                 image="https://picsum.photos/id/236/400/200"
                 alt="Feature 2"
               />
@@ -148,14 +157,17 @@ function App() {
                 <Typography
                   variant="h5"
                   component="div"
-                  sx={{ fontSize: "24px", marginBottom: "10px" }}
+                  sx={{
+                    fontSize: { xs: "20px", md: "24px" },
+                    marginBottom: { xs: "8px", md: "10px" },
+                  }}
                 >
                   Feature Two
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: "14px" }}
+                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
                 >
                   This is a description of our second feature. Notice how the
                   cards maintain their fixed height regardless of screen size.
@@ -163,11 +175,14 @@ function App() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <Card sx={{ width: "100%", height: "400px" }}>
+          <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
+            <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
               <CardMedia
                 component="img"
-                height="200"
+                sx={{
+                  height: { xs: 180, sm: 200, md: 200 },
+                  objectFit: "cover",
+                }}
                 image="https://picsum.photos/id/237/400/200"
                 alt="Feature 3"
               />
@@ -175,14 +190,17 @@ function App() {
                 <Typography
                   variant="h5"
                   component="div"
-                  sx={{ fontSize: "24px", marginBottom: "10px" }}
+                  sx={{
+                    fontSize: { xs: "20px", md: "24px" },
+                    marginBottom: { xs: "8px", md: "10px" },
+                  }}
                 >
                   Feature Three
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: "14px" }}
+                  sx={{ fontSize: { xs: "14px", md: "14px" } }}
                 >
                   This is a description of our third feature. The layout doesn't
                   adapt to smaller screens.
