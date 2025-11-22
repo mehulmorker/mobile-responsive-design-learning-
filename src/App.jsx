@@ -347,19 +347,28 @@ function App() {
             <Box>
               <Typography
                 variant="h6"
-                sx={{ marginBottom: "20px", fontSize: "20px" }}
+                sx={{
+                  marginBottom: { xs: "16px", md: "20px" },
+                  fontWeight: 500,
+                }}
               >
                 Company Info
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 123 Main Street
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 City, State 12345
               </Typography>
@@ -376,13 +385,19 @@ function App() {
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 Privacy Policy
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 Terms of Service
               </Typography>
@@ -399,13 +414,19 @@ function App() {
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 Facebook
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontSize: "14px", marginBottom: "8px" }}
+                sx={{
+                  marginBottom: { xs: "6px", md: "8px" },
+                  lineHeight: 1.6,
+                }}
               >
                 Twitter
               </Typography>
