@@ -1121,7 +1121,7 @@ const navItems = [
 
 function Navigation({ onItemClick }) {
   return (
-    <List>
+    <List role="navigation" aria-label="Main navigation">
       {navItems.map((item) => (
         <ListItem key={item.label} disablePadding>
           <ListItemButton
@@ -1144,9 +1144,13 @@ function Navigation({ onItemClick }) {
 export default Navigation;
 ```
 
-**What Changed**: Created reusable navigation component.
+**What Changed**: Created reusable navigation component with proper accessibility.
 
-**Why**: Separates navigation logic, easier to maintain.
+**Why**:
+
+- Separates navigation logic, easier to maintain
+- `role="navigation"` and `aria-label` help screen readers identify the navigation region
+- **Note**: ARIA labels should be on the actual navigation content (List), not on the Drawer container
 
 #### 3. Update AppBar with Responsive Navigation
 
@@ -1307,7 +1311,6 @@ function App() {
       }
     },
   }}
-  aria-label="navigation menu"
   // ... rest of props
 >
 ```

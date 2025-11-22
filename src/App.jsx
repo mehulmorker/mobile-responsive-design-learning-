@@ -89,7 +89,12 @@ function App() {
         onClose={handleDrawerClose}
         onOpen={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better mobile performance
+          keepMounted: true,
+          onKeyDown: (e) => {
+            if (e.key === "Escape") {
+              handleDrawerClose();
+            }
+          },
         }}
         sx={{
           display: { xs: "block", md: "none" },

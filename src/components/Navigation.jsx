@@ -10,7 +10,7 @@ const navItems = [
 
 function Navigation({ onItemClick }) {
   return (
-    <List>
+    <List role="navigation" aria-label="Main navigation">
       {navItems.map((item) => (
         <ListItem key={item.label} disablePadding>
           <ListItemButton
