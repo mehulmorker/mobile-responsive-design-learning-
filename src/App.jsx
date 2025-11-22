@@ -20,7 +20,6 @@ import {
 } from "@mui/material";
 import "./App.css";
 import BreakpointDemo from "./components/BreakpointDemo";
-import ResponsiveContent from "./components/ResponsiveContent";
 
 function App() {
   return (
