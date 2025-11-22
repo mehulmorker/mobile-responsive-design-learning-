@@ -28,6 +28,7 @@ import "./App.css";
 import BreakpointDemo from "./components/BreakpointDemo";
 import Navigation from "./components/Navigation";
 import ResponsiveImage from "./components/ResponsiveImage";
+import ResponsiveImageWithSrcset from "./components/ResponsiveImageWithSrcset";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -191,8 +192,9 @@ function App() {
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <ResponsiveImage
-                src="https://picsum.photos/id/235/400/200"
+              <ResponsiveImageWithSrcset
+                srcSet="https://picsum.photos/id/235/400/300 400w, https://picsum.photos/id/235/800/600 800w, https://picsum.photos/id/235/1200/900 1200w"
+                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                 alt="Feature 1"
                 aspectRatio="4/3"
                 objectFit="cover"
@@ -223,8 +225,9 @@ function App() {
           </Grid>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <ResponsiveImage
-                src="https://picsum.photos/id/236/400/200"
+              <ResponsiveImageWithSrcset
+                srcSet="https://picsum.photos/id/236/400/300 400w, https://picsum.photos/id/236/800/600 800w, https://picsum.photos/id/236/1200/900 1200w"
+                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                 alt="Feature 2"
                 aspectRatio="4/3"
                 objectFit="cover"
@@ -254,8 +257,9 @@ function App() {
           </Grid>
           <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
             <Card sx={{ width: "100%", height: { xs: "auto", md: "400px" } }}>
-              <ResponsiveImage
-                src="https://picsum.photos/id/237/400/200"
+              <ResponsiveImageWithSrcset
+                srcSet="https://picsum.photos/id/237/400/300 400w, https://picsum.photos/id/237/800/600 800w, https://picsum.photos/id/237/1200/900 1200w"
+                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                 alt="Feature 3"
                 aspectRatio="4/3"
                 objectFit="cover"
