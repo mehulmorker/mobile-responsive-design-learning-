@@ -102,9 +102,11 @@ function ResponsiveForm() {
             onChange={handleChange("email")}
             error={!!errors.email}
             helperText={errors.email}
-            inputProps={{
-              inputMode: "email",
-              autoComplete: "email",
+            slotProps={{
+              htmlInput: {
+                inputMode: "email",
+                autoComplete: "email",
+              },
             }}
             sx={{
               "& .MuiInputBase-root": {
@@ -122,9 +124,11 @@ function ResponsiveForm() {
             fullWidth
             value={formData.phone}
             onChange={handleChange("phone")}
-            inputProps={{
-              inputMode: "tel",
-              autoComplete: "tel",
+            slotProps={{
+              htmlInput: {
+                inputMode: "tel",
+                autoComplete: "tel",
+              },
             }}
             sx={{
               "& .MuiInputBase-root": {

@@ -1953,9 +1953,11 @@ In **Lesson 6**, we'll make forms touch-friendly with proper input sizing, stack
 - Proper input types improve mobile keyboard
 - Autocomplete improves UX
 
-#### 2. Create Responsive Form Component
+#### 2. Create Responsive Form Component (Optional - Reference Example)
 
 **File**: `src/components/ResponsiveForm.jsx` (new file)
+
+**Note**: This section creates a standalone form component as a **reference example** showing advanced patterns. The contact form in `App.jsx` is already updated in Section 1 above. This component demonstrates Grid layouts, validation, and can be used as a template for other forms.
 
 ```javascript
 import { Box, TextField, Button, Grid, Typography, Alert } from "@mui/material";
@@ -2145,6 +2147,8 @@ export default ResponsiveForm;
 - Shows Grid layout for side-by-side fields
 - Includes validation
 - Touch-friendly throughout
+
+**Note**: This `ResponsiveForm` component is created as a **reference example** to demonstrate advanced form patterns (Grid layout, validation, etc.). The actual contact form in `App.jsx` is updated inline (Section 1 above). You can use this component as a template for more complex forms or replace the inline form with it if desired.
 
 ### MUI APIs Used
 
