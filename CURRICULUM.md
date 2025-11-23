@@ -2491,6 +2491,195 @@ function App() {
 - Key-value pairs are clearer
 - No horizontal scrolling needed
 
+#### 1.1. Handling Tables with Pagination
+
+**Question**: What if the table has pagination? What pattern should we follow?
+
+**Answer**: The same pattern applies, but with pagination controls. Here are the best approaches:
+
+##### Option 1: Cards with Pagination (Recommended)
+
+**Best for**: Most use cases
+
+```javascript
+// Mobile: Cards with pagination
+{
+  isMobile && (
+    <>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        {paginatedData.map((row) => (
+          <Card key={row.id}>{/* Card content */}</Card>
+        ))}
+      </Box>
+      <Pagination
+        count={totalPages}
+        page={currentPage}
+        onChange={handlePageChange}
+        sx={{
+          mt: 3,
+          display: "flex",
+          justifyContent: "center",
+          "& .MuiPaginationItem-root": {
+            minWidth: "44px", // Touch target
+            minHeight: "44px",
+          },
+        }}
+      />
+    </>
+  );
+}
+
+// Desktop: Table with pagination
+{
+  !isMobile && (
+    <>
+      <TableContainer>
+        <Table>{/* Table content */}</Table>
+      </TableContainer>
+      <Pagination
+        count={totalPages}
+        page={currentPage}
+        onChange={handlePageChange}
+        sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+      />
+    </>
+  );
+}
+```
+
+**Benefits**:
+
+- Same data, different presentation
+- Pagination works identically on both
+- Better UX on mobile (cards)
+- Better UX on desktop (table)
+
+##### Option 2: MUI DataGrid (For Complex Tables)
+
+**Best for**: Advanced features (sorting, filtering, selection, etc.)
+
+```javascript
+import { DataGrid } from "@mui/x-data-grid";
+
+<DataGrid
+  rows={data}
+  columns={columns}
+  pageSize={10}
+  rowsPerPageOptions={[10, 25, 50]}
+  pagination
+  autoHeight
+  sx={{
+    "& .MuiDataGrid-cell": {
+      fontSize: { xs: "14px", md: "16px" },
+    },
+  }}
+/>;
+```
+
+**Benefits**:
+
+- Built-in responsive behavior
+- Automatic pagination, sorting, filtering
+- Handles large datasets efficiently
+- Mobile-friendly by default
+
+**Note**: Requires `@mui/x-data-grid` package.
+
+##### Option 3: Horizontal Scroll with Pagination (Less Ideal)
+
+**Best for**: When you must show all columns on mobile
+
+```javascript
+<TableContainer
+  sx={{
+    overflowX: "auto",
+    "&::-webkit-scrollbar": {
+      height: "8px",
+    },
+  }}
+>
+  <Table sx={{ minWidth: 1000 }}>
+    {/* Table content */}
+  </Table>
+</TableContainer>
+<Pagination
+  count={totalPages}
+  page={currentPage}
+  onChange={handlePageChange}
+  sx={{ mt: 3 }}
+/>
+```
+
+**When to use**:
+
+- All columns are essential on mobile
+- Data comparison across columns is critical
+- Cards would lose important context
+
+**Drawbacks**:
+
+- Requires horizontal scrolling
+- Poor UX on mobile
+- Harder to use with touch
+
+##### Best Practice Summary
+
+| Scenario              | Mobile Pattern      | Desktop Pattern     | Pagination |
+| --------------------- | ------------------- | ------------------- | ---------- |
+| Simple data           | Cards               | Table               | Both       |
+| Complex data          | Cards or DataGrid   | Table or DataGrid   | Both       |
+| Must show all columns | Horizontal scroll   | Table               | Both       |
+| Large dataset         | Cards (virtualized) | Table (virtualized) | Both       |
+
+**Key Principles**:
+
+1. **Same pagination logic** for both views (shared state)
+2. **Touch-friendly pagination** on mobile (44x44px buttons)
+3. **Consistent page size** or responsive page sizes
+4. **Preserve user's page** when switching views (if possible)
+
+**Example Implementation**:
+
+```javascript
+function ResponsiveTableWithPagination({ data }) {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const paginatedData = data.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
+
+  return (
+    <>
+      {/* Conditional rendering based on screen size */}
+      {isMobile ? (
+        <CardView data={paginatedData} />
+      ) : (
+        <TableView data={paginatedData} />
+      )}
+
+      {/* Shared pagination component */}
+      <Pagination
+        count={Math.ceil(data.length / rowsPerPage)}
+        page={page + 1} // MUI Pagination is 1-indexed
+        onChange={(e, newPage) => setPage(newPage - 1)}
+        sx={{
+          mt: 3,
+          display: "flex",
+          justifyContent: "center",
+          "& .MuiPaginationItem-root": {
+            minWidth: { xs: "44px", md: "32px" },
+            minHeight: { xs: "44px", md: "32px" },
+          },
+        }}
+      />
+    </>
+  );
+}
+```
+
 #### 2. Create Responsive Modal Component
 
 **File**: `src/components/ResponsiveModal.jsx` (new file)
@@ -2772,10 +2961,14 @@ const [modalOpen, setModalOpen] = useState(false);
 - Shows as table on desktop
 - Shows as cards on mobile
 - Includes sorting and filtering
-- Has pagination
+- Has pagination (see Section 1.1 above for pagination patterns)
 - Works with keyboard navigation
 
-**Hint**: Use MUI DataGrid or create custom solution.
+**Hint**:
+
+- For simple cases: Use the pattern from Section 1.1 (cards on mobile, table on desktop, shared pagination)
+- For advanced features: Use MUI DataGrid (`@mui/x-data-grid`) which handles responsive behavior automatically
+- Ensure pagination buttons are touch-friendly (44x44px) on mobile
 
 ### Next Step Preview
 
