@@ -379,52 +379,98 @@ function App() {
       {/* Contact Form - Fixed width inputs */}
       <Container
         maxWidth="lg"
-        sx={{ padding: "40px 20px", backgroundColor: "#f5f5f5" }}
+        sx={{
+          padding: { xs: "32px 16px", sm: "40px 20px", md: "40px 20px" },
+          backgroundColor: "#f5f5f5",
+        }}
       >
-        <Box sx={{ maxWidth: "600px", margin: "0 auto" }}>
+        <Box
+          sx={{
+            maxWidth: { xs: "100%", sm: "600px", md: "700px" },
+            margin: "0 auto",
+          }}
+        >
           <Typography
             variant="h3"
-            sx={{ fontSize: "36px", marginBottom: "30px", textAlign: "center" }}
+            sx={{
+              fontSize: { xs: "28px", sm: "32px", md: "36px" },
+              marginBottom: { xs: "24px", sm: "28px", md: "30px" },
+              textAlign: "center",
+            }}
           >
             Contact Us
           </Typography>
           <Box
             component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: { xs: "16px", sm: "20px", md: "24px" },
+            }}
           >
             <TextField
               label="Full Name"
               variant="outlined"
               fullWidth
+              required
               sx={{
-                "& .MuiInputBase-input": { fontSize: "16px", padding: "14px" },
+                "& .MuiInputBase-root": {
+                  fontSize: { xs: "16px", md: "16px" }, // Prevent zoom on iOS
+                  minHeight: { xs: "56px", md: "56px" }, // Touch target
+                },
+                "& .MuiInputBase-input": {
+                  padding: { xs: "16px 14px", md: "16px 14px" },
+                },
               }}
             />
             <TextField
               label="Email Address"
               variant="outlined"
               fullWidth
+              required
+              slotProps={{
+                htmlInput: {
+                  inputMode: "email",
+                  autoComplete: "email",
+                },
+              }}
               sx={{
-                "& .MuiInputBase-input": { fontSize: "16px", padding: "14px" },
+                "& .MuiInputBase-root": {
+                  fontSize: { xs: "16px", md: "16px" },
+                  minHeight: { xs: "56px", md: "56px" },
+                },
+                "& .MuiInputBase-input": {
+                  padding: { xs: "16px 14px", md: "16px 14px" },
+                },
               }}
             />
             <TextField
               label="Message"
               variant="outlined"
               multiline
-              rows={6}
+              rows={{ xs: 5, md: 6 }}
               fullWidth
+              required
               sx={{
-                "& .MuiInputBase-input": { fontSize: "16px", padding: "14px" },
+                "& .MuiInputBase-root": {
+                  fontSize: { xs: "16px", md: "16px" },
+                },
+                "& .MuiInputBase-input": {
+                  padding: { xs: "16px 14px", md: "16px 14px" },
+                },
               }}
             />
             <Button
               variant="contained"
               size="large"
+              type="submit"
               sx={{
-                padding: "14px 50px",
-                fontSize: "18px",
-                alignSelf: "center",
+                width: { xs: "100%", sm: "auto" },
+                padding: { xs: "14px 24px", md: "14px 50px" },
+                fontSize: { xs: "16px", md: "18px" },
+                minHeight: { xs: "48px", md: "48px" }, // Touch target
+                alignSelf: { xs: "stretch", sm: "center" },
+                mt: { xs: 1, md: 0 },
               }}
             >
               Submit
